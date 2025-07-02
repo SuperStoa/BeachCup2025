@@ -12,61 +12,23 @@
     <p>Turnierübersicht – Gruppenphase & KO-Runde</p>
   </header>
 
-  <section id="gruppenphase">
-    <h2>🌴 Gruppenphase</h2>
+  <main>
+    <section id="gruppenphase">
+      <h2>🌴 Gruppenphase</h2>
+      <div id="gruppen-container"></div>
+    </section>
 
-    <!-- Gruppe A -->
-    <h3>Gruppe A</h3>
-    <table>
-      <thead><tr><th>Team</th><th>S</th><th>N</th></tr></thead>
-      <tbody>
-        <tr><td><img src="logos/team1.png" width="30"> Team 1</td><td>2</td><td>1</td></tr>
-        <tr><td><img src="logos/team2.png" width="30"> Team 2</td><td>3</td><td>0</td></tr>
-        <tr><td><img src="logos/team3.png" width="30"> Team 3</td><td>1</td><td>2</td></tr>
-        <tr><td><img src="logos/team4.png" width="30"> Team 4</td><td>0</td><td>3</td></tr>
-      </tbody>
-    </table>
-
-    <!-- Gruppe B -->
-    <h3>Gruppe B</h3>
-    <table>
-      <thead><tr><th>Team</th><th>S</th><th>N</th></tr></thead>
-      <tbody>
-        <tr><td><img src="logos/team5.png" width="30"> Team 5</td><td>2</td><td>1</td></tr>
-        <tr><td><img src="logos/team6.png" width="30"> Team 6</td><td>2</td><td>1</td></tr>
-        <tr><td><img src="logos/team7.png" width="30"> Team 7</td><td>1</td><td>2</td></tr>
-        <tr><td><img src="logos/team8.png" width="30"> Team 8</td><td>1</td><td>2</td></tr>
-      </tbody>
-    </table>
-
-    <!-- Gruppe C -->
-    <h3>Gruppe C</h3>
-    <table>
-      <thead><tr><th>Team</th><th>S</th><th>N</th></tr></thead>
-      <tbody>
-        <tr><td><img src="logos/team9.png" width="30"> Team 9</td><td>3</td><td>0</td></tr>
-        <tr><td><img src="logos/team10.png" width="30"> Team 10</td><td>2</td><td>1</td></tr>
-        <tr><td><img src="logos/team11.png" width="30"> Team 11</td><td>1</td><td>2</td></tr>
-        <tr><td><img src="logos/team12.png" width="30"> Team 12</td><td>0</td><td>3</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="ko-phase">
-    <h2>🎯 KO-Phase</h2>
-    <ul>
-      <li>Viertelfinale 1: Team 1 vs Team 6</li>
-      <li>Viertelfinale 2: Team 2 vs Team 10</li>
-      <li>Viertelfinale 3: Team 5 vs Team 11</li>
-      <li>Viertelfinale 4: Team 9 vs Team 3</li>
-      <li>Halbfinale 1: Sieger VF1 vs Sieger VF2</li>
-      <li>Halbfinale 2: Sieger VF3 vs Sieger VF4</li>
-      <li>Finale: Sieger HF1 vs Sieger HF2</li>
-    </ul>
-  </section>
+    <section id="ko-phase">
+      <h2>🎯 KO-Phase</h2>
+      <div id="baum"></div>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 SuperStoa – BeachCup Turnierverwaltung</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
