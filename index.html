@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🏖️ Beachcup 2025 – Gruppenspiele</h1>
+  <h1>🏖️ Beachcup 2025 – Turnierübersicht</h1>
 
   <div class="gruppen-wrapper">
     <div class="gruppe" id="gruppeA">
@@ -25,30 +25,17 @@
     </div>
   </div>
 
+  <button onclick="starteKOPhase()">🏆 KO-Phase starten</button>
+
+  <h2>🏆 K.O.-Phase – Finalrunde</h2>
+  <table class="ko-tabelle" id="viertelfinale"></table>
+  <div id="bracket"></div>
+
+  <h2>🎯 Platzierungsspiele (Platz 9–12)</h2>
+  <table class="platzierungs-tabelle" id="platzierung"></table>
+
+  <button onclick="exportAnsicht()">📤 Exportieren / Drucken</button>
+
   <script src="script.js"></script>
 </body>
 </html>
-<h2>🏆 K.O.-Phase – Finalrunde</h2>
-<div id="koPhase">
-  <table class="ko-tabelle" id="viertelfinale"></table>
-  <table class="ko-tabelle" id="halbfinale"></table>
-  <table class="ko-tabelle" id="finalspiele"></table>
-</div>
-
-<h2>🎯 Platzierungsspiele (Platz 9–12)</h2>
-<table class="platzierungs-tabelle" id="platzierung"></table>
-<h2>🏆 Turnierbaum – Finale</h2>
-<div id="bracket">
-  <!-- Dynamisch gefüllt per JS -->
-</div>
-
-<button onclick="exportAnsicht()">📤 Exportieren / Drucken</button>
-<h2>🏆 K.O.-Phase – Finalrunde</h2>
-<div id="koPhase">
-  <table class="ko-tabelle" id="viertelfinale"></table>
-  <table class="ko-tabelle" id="halbfinale"></table>
-  <table class="ko-tabelle" id="finalspiele"></table>
-</div>
-
-<h2>🎯 Platzierungsspiele (Platz 9–12)</h2>
-<table class="platzierungs-tabelle" id="platzierung"></table>
