@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BeachCup 2025 – Spielplan & KO-Runde</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>BeachCup 2025 – Spielplan</title>
+  <link rel="stylesheet" href="turnierplan.css" />
 </head>
 <body>
   <header>
     <h1>🏖️ BeachCup 2025</h1>
-    <p>Spielplan • Ergebnisübersicht • KO-Runde</p>
+    <p>Spielplan mit Feldern, Ergebnissen & Schiedsrichtern</p>
   </header>
 
   <main>
     <section id="spielplan">
-      <h2>📅 Spielübersicht mit Zeitplan</h2>
       <table>
         <thead>
           <tr>
+            <th>Spiel #</th>
             <th>Uhrzeit</th>
-            <th>Feld 1</th>
+            <th>Feld</th>
+            <th>Team A</th>
             <th>Punkte</th>
-            <th>Feld 2</th>
+            <th>Team B</th>
             <th>Punkte</th>
             <th>Schiedsrichter</th>
           </tr>
@@ -32,17 +33,15 @@
 
     <section id="ko-phase">
       <h2>🏆 KO-Runde</h2>
-      <div id="ko-baum">
-        <!-- Wird automatisch befüllt -->
-      </div>
+      <div id="ko-baum">Wird nach Gruppenphase automatisch erstellt.</div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 SuperStoa – BeachCup Turnierverwaltung</p>
     <button onclick="window.print()">🖨️ Drucken / PDF exportieren</button>
+    <p>&copy; 2025 SuperStoa – BeachCup Turnierverwaltung</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="turnierplan.js"></script>
 </body>
 </html>
