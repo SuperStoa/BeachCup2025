@@ -118,3 +118,7 @@ function starteKOPhase() {
   ];
 
   renderBracket(top4A.map(t=>t.name
+document.addEventListener("DOMContentLoaded", () => {
+  renderSpielplan("A");
+  renderSpielplan("B");
+});
