@@ -3,24 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BeachCup 2025 – Turnierplan</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>BeachCup 2025 – Spielplan</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1>🏐 BeachCup 2025</h1>
-    <p>Turnierübersicht – Gruppenphase & KO-Runde</p>
+    <p>Spielplan – 2 Felder, 12 Teams, automatische Schiedsrichter</p>
   </header>
 
   <main>
-    <section id="gruppenphase">
-      <h2>🌴 Gruppenphase</h2>
-      <div id="gruppen-container"></div>
-    </section>
-
-    <section id="ko-phase">
-      <h2>🎯 KO-Phase</h2>
-      <div id="baum"></div>
+    <section id="spielplan">
+      <h2>📋 Spielübersicht</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Runde</th>
+            <th>Feld 1</th>
+            <th>Feld 2</th>
+            <th>Schiedsrichter</th>
+          </tr>
+        </thead>
+        <tbody id="spielplan-body"></tbody>
+      </table>
     </section>
   </main>
 
@@ -31,4 +36,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
