@@ -1,0 +1,1 @@
+renderBracket(top4A.map(t=>t.name), top4B.map(t=>t.name));
