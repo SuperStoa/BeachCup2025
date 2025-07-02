@@ -141,3 +141,25 @@ function renderPlatzierung(containerId, paarungen) {
       </tr>`;
   });
 }
+function renderBracket(topTeamsA, topTeamsB) {
+  const bracket = document.getElementById("bracket");
+  bracket.innerHTML = `
+    <div class="runde runde-vf">
+      <h3>Viertelfinale</h3>
+      <div>${topTeamsA[0]} 🆚 ${topTeamsB[3]}</div>
+      <div>${topTeamsA[1]} 🆚 ${topTeamsB[2]}</div>
+      <div>${topTeamsB[1]} 🆚 ${topTeamsA[2]}</div>
+      <div>${topTeamsB[0]} 🆚 ${topTeamsA[3]}</div>
+    </div>
+    <div class="runde runde-hf">
+      <h3>Halbfinale</h3>
+      <div>🏅 Gewinner Spiel 1 🆚 Gewinner Spiel 2</div>
+      <div>🏅 Gewinner Spiel 3 🆚 Gewinner Spiel 4</div>
+    </div>
+    <div class="runde runde-finale">
+      <h3>Finale</h3>
+      <div>🏆 Sieger HF1 🆚 Sieger HF2</div>
+      <div class="kleines-finale">🥉 Verlierer HF1 🆚 Verlierer HF2</div>
+    </div>
+  `;
+}
