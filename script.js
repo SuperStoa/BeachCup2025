@@ -13,95 +13,92 @@ const teams = [
   { name: "Frei 2", logo: "logos/team12.png" }
 ];
 
-const spieleProRunde = 4; // 4 Teams aktiv → 2 Spiele
-const startzeit = new Date(2025, 6, 5, 9, 0); // z. B. 5. Juli 2025, 09:00 Uhr
-const intervallMin = 20;
+const startzeit = new Date(2025, 6, 5, 10, 0); // 5. Juli 2025 – 10:00 Uhr
+const minutenProSpiel = 20;
 
 function shuffle(array) {
   return [...array].sort(() => Math.random() - 0.5);
 }
 
-function getTimeSlot(i) {
-  const d = new Date(startzeit.getTime() + i * intervallMin * 60000);
-  return d.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" });
+function getZeitString(index) {
+  const zeit = new Date(startzeit.getTime() + index * minutenProSpiel * 60000);
+  return zeit.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" });
 }
 
-function generateRounds() {
-  const rounds = [];
-  const teamPool = [...teams];
-  const totalRounds = Math.floor(teamPool.length / spieleProRunde) * 3;
+function generateSpielplan() {
+  const spiele = [];
+  const alleTeams = shuffle([...teams]);
+  const spieleProRunde = 4;
+  let spielNr = 1;
+  let runde = 0;
 
-  for (let r = 0; r < totalRounds; r++) {
-    const round = { matches: [], schiris: [] };
-    const pool = shuffle(teamPool);
-    const aktive = pool.slice(0, spieleProRunde);
-    const schiris = pool.slice(spieleProRunde, spieleProRunde + 2);
-    round.schiris = schiris.map(t => t.name);
-
-    round.matches.push({
-      t1: aktive[0],
-      t2: aktive[1],
-      field: "Feld 1"
+  while (alleTeams.length >= 4) {
+    const spieler = alleTeams.splice(0, 4);
+    const schiris = alleTeams.slice(0, 2);
+    spiele.push({
+      spielNr,
+      zeit: getZeitString(runde),
+      feld: "Feld 1",
+      teamA: spieler[0],
+      teamB: spieler[1],
+      schiri: schiris[0]?.name || "n. a."
     });
-    round.matches.push({
-      t1: aktive[2],
-      t2: aktive[3],
-      field: "Feld 2"
+    spielNr++;
+    spiele.push({
+      spielNr,
+      zeit: getZeitString(runde),
+      feld: "Feld 2",
+      teamA: spieler[2],
+      teamB: spieler[3],
+      schiri: schiris[1]?.name || "n. a."
     });
-
-    rounds.push(round);
+    spielNr++;
+    runde++;
+    alleTeams.push(...spieler); // für Rotation
   }
-  return rounds;
+
+  return spiele;
 }
 
-function createInput(id) {
-  const saved = localStorage.getItem(id) || "";
+function ergebnisInput(spielId, team) {
   const input = document.createElement("input");
   input.type = "number";
-  input.value = saved;
-  input.onchange = () => localStorage.setItem(id, input.value);
   input.min = 0;
+  input.value = localStorage.getItem(`${spielId}_${team}`) || "";
+  input.onchange = () => localStorage.setItem(`${spielId}_${team}`, input.value);
   return input;
 }
 
-function renderSchedule() {
+function teamZelle(team) {
+  return `<img src="${team.logo}" class="team-logo" alt=""> ${team.name}`;
+}
+
+function renderSpielplan() {
+  const spiele = generateSpielplan();
   const tbody = document.getElementById("spielplan-body");
-  const rounds = generateRounds();
 
-  rounds.forEach((runde, i) => {
+  spiele.forEach(spiel => {
     const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${spiel.spielNr}</td>
+      <td>${spiel.zeit}</td>
+      <td>${spiel.feld}</td>
+      <td>${teamZelle(spiel.teamA)}</td>
+      <td></td>
+      <td>${teamZelle(spiel.teamB)}</td>
+      <td></td>
+      <td>${spiel.schiri}</td>
+    `;
+    const tdPunkteA = document.createElement("td");
+    tdPunkteA.appendChild(ergebnisInput(spiel.spielNr, "A"));
+    const tdPunkteB = document.createElement("td");
+    tdPunkteB.appendChild(ergebnisInput(spiel.spielNr, "B"));
 
-    const timeCell = document.createElement("td");
-    timeCell.textContent = getTimeSlot(i);
-    tr.appendChild(timeCell);
-
-    runde.matches.forEach((match, idx) => {
-      const td = document.createElement("td");
-      const teamLogoHTML = team =>
-        `<img src="${team.logo}" class="team-logo" alt=""> ${team.name}`;
-      td.innerHTML = `${teamLogoHTML(match.t1)}<br>vs<br>${teamLogoHTML(match.t2)}`;
-      tr.appendChild(td);
-
-      const resultCell = document.createElement("td");
-      resultCell.appendChild(createInput(`runde${i}_spiel${idx}_t1`));
-      resultCell.appendChild(document.createTextNode(" : "));
-      resultCell.appendChild(createInput(`runde${i}_spiel${idx}_t2`));
-      tr.appendChild(resultCell);
-    });
-
-    const schiriCell = document.createElement("td");
-    schiriCell.innerHTML = runde.schiris.join("<br>");
-    tr.appendChild(schiriCell);
+    tr.children[4].replaceWith(tdPunkteA);
+    tr.children[6].replaceWith(tdPunkteB);
 
     tbody.appendChild(tr);
   });
-
-  renderKO(); // vorerst leer / Erweiterung folgt
 }
 
-function renderKO() {
-  const koDiv = document.getElementById("ko-baum");
-  koDiv.innerHTML = `<p>⚠️ KO-Baum wird erstellt, sobald Gruppenergebnisse vollständig sind.</p>`;
-}
-
-renderSchedule();
+renderSpielplan();
