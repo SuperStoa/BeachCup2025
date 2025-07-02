@@ -1,4 +1,4 @@
-/* Grundlayout */
+/* Hintergrund und Grundlayout */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -7,28 +7,28 @@ body {
   color: #fff;
 }
 
-/* Header & Footer */
 header, footer {
-  background: rgba(0, 0, 0, 0.65);
-  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
   padding: 1rem;
+  text-align: center;
 }
 
 header h1 {
   margin: 0;
+  font-size: 2rem;
 }
 
 main {
   padding: 1.5rem;
 }
 
-/* Tabellen */
+/* Tabelle */
 table {
   width: 100%;
-  background: rgba(255, 255, 255, 0.1);
   border-collapse: collapse;
-  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(2px);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 th, td {
@@ -40,41 +40,53 @@ th, td {
 }
 
 th {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
   font-weight: bold;
 }
 
-td input[type="number"] {
-  width: 50px;
-  padding: 0.25rem;
-  text-align: center;
-}
-
-/* Teamlogos */
-.team-logo {
+/* Logos */
+img.team-logo {
   width: 32px;
   height: 32px;
   vertical-align: middle;
-  margin-right: 8px;
+  margin-right: 6px;
   border-radius: 50%;
-  border: 2px solid white;
+  border: 2px solid #fff;
   object-fit: cover;
 }
 
-/* Button für Druck/PDF */
+/* Eingabefelder */
+td input[type="number"] {
+  width: 45px;
+  padding: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* KO-Phase */
+#ko-phase {
+  margin-top: 3rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+}
+
+/* Footer & Button */
 footer button {
-  margin-top: 1rem;
+  margin: 1rem auto 0;
+  display: block;
   padding: 0.5rem 1rem;
+  font-weight: bold;
   border: none;
   background: #ffda44;
   color: #222;
-  font-weight: bold;
-  cursor: pointer;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 footer button:hover {
-  background: #ffe97c;
+  background: #fff176;
 }
 
 /* Druckansicht */
@@ -82,16 +94,27 @@ footer button:hover {
   header, footer, button {
     display: none;
   }
+
   body {
     background: white;
     color: black;
   }
+
   table {
-    background: none;
-    color: black;
+    background: white;
   }
+
   th {
     background: #ccc;
     color: black;
+  }
+
+  td {
+    color: black;
+  }
+
+  td input[type="number"] {
+    border: none;
+    background: transparent;
   }
 }
