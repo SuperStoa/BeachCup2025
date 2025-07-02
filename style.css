@@ -1,120 +1,70 @@
-/* Hintergrund und Grundlayout */
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url('assets/beach.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #f7f7f7;
+  color: #222;
 }
 
-header, footer {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 1rem;
-  text-align: center;
+h1, h2, h3 {
+  color: #115e59;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2rem;
-}
-
-main {
-  padding: 1.5rem;
-}
-
-/* Tabelle */
 table {
   width: 100%;
   border-collapse: collapse;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(2px);
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  margin-bottom: 30px;
 }
 
 th, td {
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  text-align: center;
-  color: white;
-  font-size: 0.95rem;
-}
-
-th {
-  background: rgba(0, 0, 0, 0.5);
-  font-weight: bold;
-}
-
-/* Logos */
-img.team-logo {
-  width: 32px;
-  height: 32px;
-  vertical-align: middle;
-  margin-right: 6px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  object-fit: cover;
-}
-
-/* Eingabefelder */
-td input[type="number"] {
-  width: 45px;
-  padding: 0.25rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 6px;
   text-align: center;
 }
 
-/* KO-Phase */
-#ko-phase {
-  margin-top: 3rem;
-  padding: 1rem;
-  background: rgba(255,255,255,0.08);
-  border-radius: 10px;
+input[type="number"] {
+  width: 60px;
 }
 
-/* Footer & Button */
-footer button {
-  margin: 1rem auto 0;
-  display: block;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
+button {
+  background-color: #0284c7;
+  color: white;
   border: none;
-  background: #ffda44;
-  color: #222;
-  border-radius: 6px;
+  padding: 10px 15px;
+  border-radius: 4px;
   cursor: pointer;
+  margin-bottom: 30px;
 }
 
-footer button:hover {
-  background: #fff176;
+button:hover {
+  background-color: #0369a1;
 }
 
-/* Druckansicht */
-@media print {
-  header, footer, button {
-    display: none;
-  }
+.gruppen-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 
-  body {
-    background: white;
-    color: black;
+@media(min-width: 900px) {
+  .gruppen-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
   }
+}
 
-  table {
-    background: white;
-  }
+#bracket {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 40px;
+}
 
-  th {
-    background: #ccc;
-    color: black;
-  }
-
-  td {
-    color: black;
-  }
-
-  td input[type="number"] {
-    border: none;
-    background: transparent;
-  }
+.runde {
+  flex: 1;
+  min-width: 250px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.05);
 }
