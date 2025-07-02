@@ -2,46 +2,29 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BeachCup 2025 – Spielplan</title>
-  <link rel="stylesheet" href="turnierplan.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beachcup 2025</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>🏖️ BeachCup 2025</h1>
-    <p>Spielplan mit Feldern, Ergebnissen & Schiedsrichtern</p>
-  </header>
+  <h1>🏖️ Beachcup 2025 – Gruppenspiele</h1>
 
-  <main>
-    <section id="spielplan">
-      <table>
-        <thead>
-          <tr>
-            <th>Spiel #</th>
-            <th>Uhrzeit</th>
-            <th>Feld</th>
-            <th>Team A</th>
-            <th>Punkte</th>
-            <th>Team B</th>
-            <th>Punkte</th>
-            <th>Schiedsrichter</th>
-          </tr>
-        </thead>
-        <tbody id="spielplan-body"></tbody>
-      </table>
-    </section>
+  <div class="gruppen-wrapper">
+    <div class="gruppe" id="gruppeA">
+      <h2>Gruppe A</h2>
+      <table class="spielplan" id="spieleA"></table>
+      <h3>Tabelle</h3>
+      <table class="tabelle" id="tabelleA"></table>
+    </div>
 
-    <section id="ko-phase">
-      <h2>🏆 KO-Runde</h2>
-      <div id="ko-baum">Wird nach Gruppenphase automatisch erstellt.</div>
-    </section>
-  </main>
+    <div class="gruppe" id="gruppeB">
+      <h2>Gruppe B</h2>
+      <table class="spielplan" id="spieleB"></table>
+      <h3>Tabelle</h3>
+      <table class="tabelle" id="tabelleB"></table>
+    </div>
+  </div>
 
-  <footer>
-    <button onclick="window.print()">🖨️ Drucken / PDF exportieren</button>
-    <p>&copy; 2025 SuperStoa – BeachCup Turnierverwaltung</p>
-  </footer>
-
-  <script src="turnierplan.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
